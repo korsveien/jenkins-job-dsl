@@ -8,7 +8,7 @@ job('sparefant-fe-master') {
     steps {
         shell("npm i ")
         shell("npm run build")
-        shell("cp -r build/* /etc/www/sparefant.no/html")
+        shell("cp -r build/* /var/www/sparefant.no/html")
     }
     publishers {
         githubCommitNotifier()
