@@ -9,8 +9,14 @@ job('sparefant-fe-master') {
         githubPush()
     }
     steps {
-        shell('npm i')
-        shell('npm run build')
+        dockerBuildAndPublish {
+            dockerRegistryURL('registry.heroku.com')
+            repositoryName('sparefant/sparefant-fe')
+            tag('${BUILD_TIMESTAMP}-${GIT_REVISION,length=7}')
+            forcePull(false)
+            createFingerprints(false)
+            skipDecorate()
+        }
     }
     publishers {
         githubCommitNotifier()
