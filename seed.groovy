@@ -11,6 +11,8 @@ job('sparefant-fe-master') {
     steps {
         shell('npm i')
         shell('npm run build')
-        shell('npm run deploy')
+    }
+    publishers {
+        githubCommitNotifier()
     }
 }
