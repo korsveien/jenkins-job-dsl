@@ -11,7 +11,6 @@ job('sparefant-fe-master') {
     steps {
         shell('npm i')
         shell('npm run build')
-        shell('./node_modules/gh-pages/bin/gh-pages -d build')
     }
     publishers {
         git {
