@@ -13,4 +13,11 @@ job('sparefant-fe-master') {
         shell('npm run build')
         shell('./node_modules/gh-pages/bin/gh-pages -d build')
     }
+    publishers {
+        git {
+            pushOnlyIfSuccess()
+            forcePush(true)
+            branch('origin', 'gh-pages')
+        }
+    }
 }
