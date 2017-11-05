@@ -7,7 +7,7 @@ job('sparefant-fe-master') {
     }
     steps {
         dockerBuildAndPublish {
-            dockerRegistryURL('registry.heroku.com')
+            repositoryName('registry.heroku.com/sparefant-fe')
             tag('${BUILD_TIMESTAMP}-${GIT_REVISION,length=7}')
             forcePull(true)
             skipDecorate()
