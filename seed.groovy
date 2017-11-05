@@ -11,12 +11,6 @@ job('sparefant-fe-master') {
     steps {
         shell('npm i')
         shell('npm run build')
-    }
-    publishers {
-        git {
-            pushOnlyIfSuccess()
-            forcePush(true)
-            branch('origin', 'gh-pages')
-        }
+        shell('npm run deploy')
     }
 }
