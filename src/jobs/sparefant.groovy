@@ -9,7 +9,10 @@ branches.each {
             git("git://github.com/${project}.git", branchName)
         }
         steps {
-            maven("test -Dproject.name=${project}/${branchName}")
+            sh("npm install")
+        }
+        steps {
+            sh("elm-app build")
         }
     }
 }
