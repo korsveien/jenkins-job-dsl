@@ -1,4 +1,7 @@
 job('sparefant-fe-master') {
+    wrappers {
+        nodejs('NodeJS 1.2.4')
+    }
     scm {
         github(ownerAndProject = 'pederpus/sparefant-fe', branch = 'master',  protocol = 'git')
     }
